@@ -1,0 +1,78 @@
+WRN:root:tx_t (1) isn't a multiple of clk_t (0.008138020833333334)
+WRN:root:grad_t (10) isn't multiple of clk_t (0.008138020833333334)
+INF:root:Interpreting /Users/edison/repos/maglite/mri4all/data/acq/4568d766-586f-11f0-a415-86b7b11de545#scan_1/seq/acq0.seq
+INF:root:Opening PulSeq file...
+INF:root:(Unused): Reading...
+INF:root:(Unused): Complete
+INF:root:Definitions: Reading...
+INF:root:Definitions: Complete
+INF:root:Blocks: Reading...
+INF:root:Blocks: Complete
+INF:root:RF: Reading...
+INF:root:RF: Complete
+INF:root:ADC: Reading...
+INF:root:ADC: Complete
+INF:root:Delay: Reading...
+INF:root:Delay: Complete
+INF:root:Shapes: Reading...
+INF:root:Shapes: Complete
+INF:root:Validating ids...
+INF:root:Valid ids
+WRN:root:Event delay 1 is not a multiple of clk_t
+WRN:root:Event delay 20 is not a multiple of clk_t
+WRN:root:Dwell time (1.562) rounded to 1.5625, multiple of clk_t (0.008138020833333334)
+INF:root:PulSeq file loaded
+INF:root:Compiling Tx data...
+INF:root:Tx data compiled
+INF:root:Compiling gradient data...
+INF:root:Gradient data compiled
+ERR:acq:Failed to run sequence FID. Failure during step run_sequence.
+ERR:acq:unsupported operand type(s) for +: 'SocketKind' and 'str'
+Traceback (most recent call last):
+  File "/Users/edison/repos/maglite/mri4all/console/services/acq/main.py", line 104, in process_acquisition
+    if not seq_instance.run_sequence(scan_task):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/sequences/FID.py", line 110, in run_sequence
+    rxd, rx_t = run_pulseq(
+                ^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/seq/adjustments_acq/scripts.py", line 155, in run_pulseq
+    expt = ex.Experiment(
+           ^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/experiment.py", line 86, in __init__
+    print(socket.AF_INET, socket.SOCK_STREAM + "888888888888888h88")
+                          ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'SocketKind' and 'str'
+INF:acq:Moving folder /Users/edison/repos/maglite/mri4all/data/acq/4568d766-586f-11f0-a415-86b7b11de545#scan_1 to /Users/edison/repos/maglite/mri4all/data/failure
+WRN:acq:Exception ignored in: 
+WRN:acq:<function Experiment.__del__ at 0x1503372e0>
+WRN:acq:Traceback (most recent call last):
+
+WRN:acq:  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/experiment.py", line 152, in __del__
+
+WRN:acq:    
+WRN:acq:self._s.close()
+WRN:acq: 
+WRN:acq: 
+WRN:acq: 
+WRN:acq: 
+WRN:acq:^
+WRN:acq:^
+WRN:acq:^
+WRN:acq:^
+WRN:acq:^
+WRN:acq:^
+WRN:acq:^
+WRN:acq:AttributeError
+WRN:acq:: 
+WRN:acq:'Experiment' object has no attribute '_s'
+INF:acq:Shutdown requested
+INF:acq:Acquisition service terminated
+INF:acq:-------------
+INF:acq:Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+INF:acq:Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+INF:acq:Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+INF:acq:Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+INF:acq:Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+INF:acq:Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+INF:acq:Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+INF:acq:Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about

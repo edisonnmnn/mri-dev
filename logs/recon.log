@@ -1,0 +1,21 @@
+2025-07-03 17:30:07,865 | recon | INF |  | -- MRI4ALL 0.0.1-alpha.1 --
+2025-07-03 17:30:07,865 | recon | INF |  | Reconstruction service started
+2025-07-03 17:30:07,865 | recon | INF |  | Preparing for reconstruction...
+2025-07-03 17:30:07,865 | recon | INF |  | Checking for existence of data folders...
+2025-07-03 17:30:07,865 | recon | INF |  | All folders exist
+2025-07-03 17:36:32,117 | recon | INF |  | Shutdown requested
+2025-07-03 17:36:32,205 | recon | INF |  | Reconstruction service terminated
+2025-07-03 17:36:32,205 | recon | INF |  | -------------
+2025-07-03 17:36:35,072 | recon | INF |  | -- MRI4ALL 0.0.1-alpha.1 --
+2025-07-03 17:36:35,072 | recon | INF |  | Reconstruction service started
+2025-07-03 17:36:35,072 | recon | INF |  | Preparing for reconstruction...
+2025-07-03 17:36:35,072 | recon | INF |  | Checking for existence of data folders...
+2025-07-03 17:36:35,072 | recon | INF |  | All folders exist
+2025-07-03 17:37:55,293 | recon | INF |  | Shutdown requested
+2025-07-03 17:37:55,303 | recon | INF |  | Reconstruction service terminated
+2025-07-03 17:37:55,303 | recon | INF |  | -------------
+2025-07-03 17:41:42,178 | recon | INF |  | -- MRI4ALL 0.0.1-alpha.1 --
+2025-07-03 17:41:42,179 | recon | INF |  | Reconstruction service started
+2025-07-03 17:41:42,179 | recon | INF |  | Preparing for reconstruction...
+2025-07-03 17:41:42,179 | recon | INF |  | Checking for existence of data folders...
+2025-07-03 17:41:42,179 | recon | INF |  | All folders exist

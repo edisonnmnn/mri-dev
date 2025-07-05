@@ -1,0 +1,69 @@
+{
+    "id": "67d2571c-586c-11f0-b679-86b7b11de545",
+    "sequence": "adj_grad_amplitude",
+    "protocol_name": "Calibrate Gradients  [untested]",
+    "scan_number": 1,
+    "system": {
+        "name": "dev-system1",
+        "model": "Zeugmatron Z1",
+        "serial_number": "000001",
+        "software_version": "0.0.1-alpha.1"
+    },
+    "patient": {
+        "first_name": "9463",
+        "last_name": "Phantom",
+        "mrn": "63eabbe4",
+        "birth_date": "20231016",
+        "gender": "O",
+        "weight_kg": 20,
+        "height_cm": 100,
+        "age": 1
+    },
+    "exam": {
+        "id": "6480fd5c-586c-11f0-b679-86b7b11de545",
+        "registration_time": "2025-07-03T17:18:21.437452",
+        "scan_counter": 1,
+        "dicom_study_uid": "1.2.826.0.1.3680043.8.498.58532279977267832726195226945730035274",
+        "patient_position": "HFS",
+        "acc": "63eac6a2"
+    },
+    "parameters": {},
+    "adjustment": {
+        "exam_id": "",
+        "shim": {
+            "shim_x": 0.0,
+            "shim_y": 0.0,
+            "shim_z": 0.0
+        },
+        "rf": {
+            "larmor_frequency": 0.0,
+            "rf_max_amplitude": 0.0,
+            "rf_pi2_fraction": 0.0
+        },
+        "gradients": {
+            "gx_max": 0.0,
+            "gy_max": 0.0,
+            "gz_max": 0.0
+        }
+    },
+    "processing": {
+        "trajectory": "cartesian",
+        "recon_mode": "",
+        "denoising_strength": 0,
+        "dim": null,
+        "dim_size": null,
+        "oversampling_read": null
+    },
+    "other": {},
+    "results": [],
+    "journal": {
+        "created_at": "2025-07-03T17:18:27.004494",
+        "prepared_at": "2025-07-03T17:19:58.327745",
+        "acquisition_start": "",
+        "acquisition_end": "",
+        "reconstruction_start": "",
+        "reconstruction_end": "",
+        "failed_at": "",
+        "fail_stage": "none"
+    }
+}

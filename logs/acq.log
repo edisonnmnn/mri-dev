@@ -1,0 +1,388 @@
+2025-07-03 17:28:58,471 | acq | INF |  | gpa-fhdo
+2025-07-03 17:28:58,499 | acq | INF |  | -- MRI4ALL 0.0.1-alpha.1 --
+2025-07-03 17:28:58,500 | acq | INF |  | Acquisition service started
+2025-07-03 17:28:58,500 | acq | INF |  | Preparing for acquisition...
+2025-07-03 17:28:58,500 | acq | INF |  | Checking for existence of data folders...
+2025-07-03 17:28:58,500 | acq | INF |  | All folders exist
+2025-07-03 17:28:58,601 | acq | INF |  | Processing scan: 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1
+2025-07-03 17:28:58,601 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Moving folder /Users/edison/repos/maglite/mri4all/data/acq_queue/64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 to /Users/edison/repos/maglite/mri4all/data/acq
+2025-07-03 17:28:58,602 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Performing acquisition...
+2025-07-03 17:28:58,942 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Requested sequence: tse_3D
+2025-07-03 17:28:58,948 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Cleared subfolder /Users/edison/repos/maglite/mri4all/data/acq/64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1/seq
+2025-07-03 17:28:58,948 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Calculating sequence tse_3D
+2025-07-03 17:28:59,043 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | === Seq timing ===
+2025-07-03 17:28:59,043 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Prephase: 0.00055
+2025-07-03 17:28:59,043 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Readout: 0.0010400000000000001
+2025-07-03 17:28:59,043 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ADC: 0.0010400000000000001
+2025-07-03 17:28:59,076 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Timing check passed successfully
+2025-07-03 17:28:59,081 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Done calculating sequence tse_3D
+2025-07-03 17:28:59,081 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Running sequence tse_3D
+2025-07-03 17:28:59,082 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Pulseq scan with Larmor 15.58
+2025-07-03 17:28:59,082 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | case path = /Users/edison/repos/maglite/mri4all/data/acq/64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1
+2025-07-03 17:30:14,137 | acq | ERR | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Connection has timed out, may be the RedPitaya is not connected
+2025-07-03 17:30:14,143 | acq | ERR | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Failed to run sequence tse_3D. Failure during step run_sequence.
+2025-07-03 17:30:14,143 | acq | ERR | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/edison/repos/maglite/mri4all/console/services/acq/main.py", line 104, in process_acquisition
+    if not seq_instance.run_sequence(scan_task):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/sequences/tse_3D.py", line 249, in run_sequence
+    rxd, rx_t = run_pulseq(
+                ^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/seq/adjustments_acq/scripts.py", line 155, in run_pulseq
+    expt = ex.Experiment(
+           ^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/experiment.py", line 138, in __init__
+    self.gradb.init_hw()
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/grad_board.py", line 251, in init_hw
+    self.server_command({'direct': 0x00000000 | (2 << 0) | (self.adc_spi_div << 2) | (0 << 8) | (0 << 9)})
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/experiment.py", line 154, in server_command
+    return sc.command(server_dict, self._s, self._print_infos, self._assert_errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/server_comms.py", line 75, in command
+    reply = send_packet(packet, socket)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/server_comms.py", line 61, in send_packet
+    socket.sendall(msgpack.packb(packet))
+BrokenPipeError: [Errno 32] Broken pipe
+2025-07-03 17:30:14,153 | acq | ERR | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Unable to create lock file /Users/edison/repos/maglite/mri4all/data/acq/64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1/LOCK
+2025-07-03 17:30:14,153 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Exception ignored in: 
+2025-07-03 17:30:14,153 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | <function FileLock.__del__ at 0x10bbff7e0>
+2025-07-03 17:30:14,154 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Traceback (most recent call last):
+
+2025-07-03 17:30:14,154 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 |   File "/Users/edison/repos/maglite/mri4all/console/common/helper.py", line 36, in __del__
+
+2025-07-03 17:30:14,154 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 |     
+2025-07-03 17:30:14,154 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | self.free()
+2025-07-03 17:30:14,154 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 |   File "/Users/edison/repos/maglite/mri4all/console/common/helper.py", line 39, in free
+
+2025-07-03 17:30:14,154 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 |     
+2025-07-03 17:30:14,154 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | if self.lockCreated:
+2025-07-03 17:30:14,154 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 |  
+2025-07-03 17:30:14,154 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 |  
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 |  
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 |  
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 |  
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 |  
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 |  
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,155 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,156 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,156 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,156 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | ^
+2025-07-03 17:30:14,156 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | AttributeError
+2025-07-03 17:30:14,156 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | : 
+2025-07-03 17:30:14,156 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | 'FileLock' object has no attribute 'lockCreated'
+2025-07-03 17:30:14,156 | acq | INF | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Moving folder /Users/edison/repos/maglite/mri4all/data/acq/64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 to /Users/edison/repos/maglite/mri4all/data/failure
+2025-07-03 17:30:14,156 | acq | WRN | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Folder not found at /Users/edison/repos/maglite/mri4all/data/acq/64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1
+2025-07-03 17:30:14,156 | acq | ERR | 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 | Failed to move scan 64f304d2-586d-11f0-bdfa-86b7b11de545#scan_1 to failure folder. Critical Error.
+2025-07-03 17:35:28,241 | acq | INF |  | Shutdown requested
+2025-07-03 17:35:28,272 | acq | INF |  | Acquisition service terminated
+2025-07-03 17:35:28,272 | acq | INF |  | -------------
+2025-07-03 17:35:28,273 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:35:28,274 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:35:28,274 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:35:28,274 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:35:28,274 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:35:28,274 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:35:28,274 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:35:28,274 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:35:33,820 | acq | INF |  | gpa-fhdo
+2025-07-03 17:35:33,847 | acq | INF |  | -- MRI4ALL 0.0.1-alpha.1 --
+2025-07-03 17:35:33,847 | acq | INF |  | Acquisition service started
+2025-07-03 17:35:33,847 | acq | INF |  | Preparing for acquisition...
+2025-07-03 17:35:33,847 | acq | INF |  | Checking for existence of data folders...
+2025-07-03 17:35:33,847 | acq | INF |  | All folders exist
+2025-07-03 17:36:00,130 | acq | INF |  | Shutdown requested
+2025-07-03 17:36:00,134 | acq | INF |  | Acquisition service terminated
+2025-07-03 17:36:00,134 | acq | INF |  | -------------
+2025-07-03 17:36:00,135 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:36:00,135 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:36:00,135 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:36:00,135 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:36:00,135 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:36:00,135 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:36:00,135 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:36:00,135 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:36:03,398 | acq | INF |  | gpa-fhdo
+2025-07-03 17:36:03,422 | acq | INF |  | -- MRI4ALL 0.0.1-alpha.1 --
+2025-07-03 17:36:03,422 | acq | INF |  | Acquisition service started
+2025-07-03 17:36:03,422 | acq | INF |  | Preparing for acquisition...
+2025-07-03 17:36:03,422 | acq | INF |  | Checking for existence of data folders...
+2025-07-03 17:36:03,422 | acq | INF |  | All folders exist
+2025-07-03 17:38:18,837 | acq | INF |  | Shutdown requested
+2025-07-03 17:38:18,857 | acq | INF |  | Acquisition service terminated
+2025-07-03 17:38:18,857 | acq | INF |  | -------------
+2025-07-03 17:38:18,858 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:18,859 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:18,859 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:18,859 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:18,859 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:18,859 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:18,859 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:18,859 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:18,859 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:30,719 | acq | INF |  | gpa-fhdo
+2025-07-03 17:38:30,747 | acq | INF |  | -- MRI4ALL 0.0.1-alpha.1 --
+2025-07-03 17:38:30,747 | acq | INF |  | Acquisition service started
+2025-07-03 17:38:30,747 | acq | INF |  | Preparing for acquisition...
+2025-07-03 17:38:30,747 | acq | INF |  | Checking for existence of data folders...
+2025-07-03 17:38:30,748 | acq | INF |  | All folders exist
+2025-07-03 17:38:31,928 | acq | INF |  | Shutdown requested
+2025-07-03 17:38:31,965 | acq | INF |  | Acquisition service terminated
+2025-07-03 17:38:31,965 | acq | INF |  | -------------
+2025-07-03 17:38:31,965 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:31,966 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:31,966 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:31,966 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:31,966 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:31,966 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:31,966 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:38:31,966 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:39:33,883 | acq | INF |  | gpa-fhdo
+2025-07-03 17:39:33,912 | acq | INF |  | -- MRI4ALL 0.0.1-alpha.1 --
+2025-07-03 17:39:33,912 | acq | INF |  | Acquisition service started
+2025-07-03 17:39:33,912 | acq | INF |  | Preparing for acquisition...
+2025-07-03 17:39:33,912 | acq | INF |  | Checking for existence of data folders...
+2025-07-03 17:39:33,913 | acq | INF |  | All folders exist
+2025-07-03 17:39:34,014 | acq | INF |  | Processing scan: 4568d766-586f-11f0-a415-86b7b11de545#scan_1
+2025-07-03 17:39:34,014 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Moving folder /Users/edison/repos/maglite/mri4all/data/acq_queue/4568d766-586f-11f0-a415-86b7b11de545#scan_1 to /Users/edison/repos/maglite/mri4all/data/acq
+2025-07-03 17:39:34,015 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Performing acquisition...
+2025-07-03 17:39:34,157 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Requested sequence: FID
+2025-07-03 17:39:34,157 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Cleared subfolder /Users/edison/repos/maglite/mri4all/data/acq/4568d766-586f-11f0-a415-86b7b11de545#scan_1/seq
+2025-07-03 17:39:34,158 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Calculating sequence FID
+2025-07-03 17:39:34,159 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Timing check passed successfully
+2025-07-03 17:39:34,159 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Done calculating sequence FID
+2025-07-03 17:39:34,159 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Running sequence FID
+2025-07-03 17:39:34,159 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Pulseq scan with Larmor 15.58
+2025-07-03 17:39:34,159 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | case path = /Users/edison/repos/maglite/mri4all/data/acq/4568d766-586f-11f0-a415-86b7b11de545#scan_1
+2025-07-03 17:39:34,160 | acq | ERR | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Failed to run sequence FID. Failure during step run_sequence.
+2025-07-03 17:39:34,160 | acq | ERR | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | unsupported operand type(s) for +: 'SocketKind' and 'str'
+Traceback (most recent call last):
+  File "/Users/edison/repos/maglite/mri4all/console/services/acq/main.py", line 104, in process_acquisition
+    if not seq_instance.run_sequence(scan_task):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/sequences/FID.py", line 110, in run_sequence
+    rxd, rx_t = run_pulseq(
+                ^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/seq/adjustments_acq/scripts.py", line 155, in run_pulseq
+    expt = ex.Experiment(
+           ^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/experiment.py", line 86, in __init__
+    print(socket.AF_INET, socket.SOCK_STREAM + "888888888888888h88")
+                          ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'SocketKind' and 'str'
+2025-07-03 17:39:34,162 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Moving folder /Users/edison/repos/maglite/mri4all/data/acq/4568d766-586f-11f0-a415-86b7b11de545#scan_1 to /Users/edison/repos/maglite/mri4all/data/failure
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Exception ignored in: 
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | <function Experiment.__del__ at 0x1503372e0>
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | Traceback (most recent call last):
+
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 |   File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/experiment.py", line 152, in __del__
+
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 |     
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | self._s.close()
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 |  
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 |  
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 |  
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 |  
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | ^
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | ^
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | ^
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | ^
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | ^
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | ^
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | ^
+2025-07-03 17:39:34,162 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | AttributeError
+2025-07-03 17:39:34,163 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | : 
+2025-07-03 17:39:34,163 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_1 | 'Experiment' object has no attribute '_s'
+2025-07-03 17:39:55,949 | acq | INF |  | Shutdown requested
+2025-07-03 17:39:55,978 | acq | INF |  | Acquisition service terminated
+2025-07-03 17:39:55,978 | acq | INF |  | -------------
+2025-07-03 17:39:55,979 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:39:55,979 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:39:55,979 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:39:55,979 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:39:55,979 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:39:55,979 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:39:55,979 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:39:55,979 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:39:58,887 | acq | INF |  | gpa-fhdo
+2025-07-03 17:39:58,912 | acq | INF |  | -- MRI4ALL 0.0.1-alpha.1 --
+2025-07-03 17:39:58,912 | acq | INF |  | Acquisition service started
+2025-07-03 17:39:58,912 | acq | INF |  | Preparing for acquisition...
+2025-07-03 17:39:58,912 | acq | INF |  | Checking for existence of data folders...
+2025-07-03 17:39:58,912 | acq | INF |  | All folders exist
+2025-07-03 17:40:20,029 | acq | INF |  | Processing scan: 4568d766-586f-11f0-a415-86b7b11de545#scan_2
+2025-07-03 17:40:20,030 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Moving folder /Users/edison/repos/maglite/mri4all/data/acq_queue/4568d766-586f-11f0-a415-86b7b11de545#scan_2 to /Users/edison/repos/maglite/mri4all/data/acq
+2025-07-03 17:40:20,030 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Performing acquisition...
+2025-07-03 17:40:20,167 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Requested sequence: tse_3D
+2025-07-03 17:40:20,171 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Cleared subfolder /Users/edison/repos/maglite/mri4all/data/acq/4568d766-586f-11f0-a415-86b7b11de545#scan_2/seq
+2025-07-03 17:40:20,172 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Calculating sequence tse_3D
+2025-07-03 17:40:20,269 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | === Seq timing ===
+2025-07-03 17:40:20,269 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Prephase: 0.00055
+2025-07-03 17:40:20,269 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Readout: 0.0010400000000000001
+2025-07-03 17:40:20,269 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ADC: 0.0010400000000000001
+2025-07-03 17:40:20,301 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Timing check passed successfully
+2025-07-03 17:40:20,307 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Done calculating sequence tse_3D
+2025-07-03 17:40:20,307 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Running sequence tse_3D
+2025-07-03 17:40:20,307 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Pulseq scan with Larmor 15.58
+2025-07-03 17:40:20,307 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | case path = /Users/edison/repos/maglite/mri4all/data/acq/4568d766-586f-11f0-a415-86b7b11de545#scan_2
+2025-07-03 17:40:20,361 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | 2
+2025-07-03 17:40:20,361 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |  
+2025-07-03 17:40:20,361 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | 1
+2025-07-03 17:40:20,361 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |  
+2025-07-03 17:40:20,361 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | 888888888888888h88
+2025-07-03 17:41:35,363 | acq | ERR | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Connection has timed out, may be the RedPitaya is not connected
+2025-07-03 17:41:35,370 | acq | ERR | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Failed to run sequence tse_3D. Failure during step run_sequence.
+2025-07-03 17:41:35,371 | acq | ERR | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/edison/repos/maglite/mri4all/console/services/acq/main.py", line 104, in process_acquisition
+    if not seq_instance.run_sequence(scan_task):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/sequences/tse_3D.py", line 249, in run_sequence
+    rxd, rx_t = run_pulseq(
+                ^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/seq/adjustments_acq/scripts.py", line 155, in run_pulseq
+    expt = ex.Experiment(
+           ^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/experiment.py", line 139, in __init__
+    self.gradb.init_hw()
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/grad_board.py", line 251, in init_hw
+    self.server_command({'direct': 0x00000000 | (2 << 0) | (self.adc_spi_div << 2) | (0 << 8) | (0 << 9)})
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/experiment.py", line 155, in server_command
+    return sc.command(server_dict, self._s, self._print_infos, self._assert_errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/server_comms.py", line 75, in command
+    reply = send_packet(packet, socket)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/server_comms.py", line 61, in send_packet
+    socket.sendall(msgpack.packb(packet))
+BrokenPipeError: [Errno 32] Broken pipe
+2025-07-03 17:41:35,379 | acq | ERR | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Unable to create lock file /Users/edison/repos/maglite/mri4all/data/acq/4568d766-586f-11f0-a415-86b7b11de545#scan_2/LOCK
+2025-07-03 17:41:35,379 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Exception ignored in: 
+2025-07-03 17:41:35,379 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | <function FileLock.__del__ at 0x106f637e0>
+2025-07-03 17:41:35,379 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Traceback (most recent call last):
+
+2025-07-03 17:41:35,379 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |   File "/Users/edison/repos/maglite/mri4all/console/common/helper.py", line 36, in __del__
+
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |     
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | self.free()
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |   File "/Users/edison/repos/maglite/mri4all/console/common/helper.py", line 39, in free
+
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |     
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | if self.lockCreated:
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |  
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |  
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |  
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |  
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |  
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |  
+2025-07-03 17:41:35,380 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 |  
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | ^
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | AttributeError
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | : 
+2025-07-03 17:41:35,381 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | 'FileLock' object has no attribute 'lockCreated'
+2025-07-03 17:41:35,382 | acq | INF | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Moving folder /Users/edison/repos/maglite/mri4all/data/acq/4568d766-586f-11f0-a415-86b7b11de545#scan_2 to /Users/edison/repos/maglite/mri4all/data/failure
+2025-07-03 17:41:35,382 | acq | WRN | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Folder not found at /Users/edison/repos/maglite/mri4all/data/acq/4568d766-586f-11f0-a415-86b7b11de545#scan_2
+2025-07-03 17:41:35,382 | acq | ERR | 4568d766-586f-11f0-a415-86b7b11de545#scan_2 | Failed to move scan 4568d766-586f-11f0-a415-86b7b11de545#scan_2 to failure folder. Critical Error.
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,383 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,384 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,384 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,384 | acq | INF |  | Shutdown requested
+2025-07-03 17:41:35,484 | acq | INF |  | Acquisition service terminated
+2025-07-03 17:41:35,484 | acq | INF |  | -------------
+2025-07-03 17:41:35,485 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:41:35,485 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:41:35,485 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:41:35,485 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:41:35,485 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:41:35,486 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:41:35,486 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:41:35,486 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:41:35,486 | acq | INF |  | Unable to remove fifo file /tmp/mri4all/pipes/acq_pipe, but not to worry about
+2025-07-03 17:41:38,256 | acq | INF |  | gpa-fhdo
+2025-07-03 17:41:38,282 | acq | INF |  | -- MRI4ALL 0.0.1-alpha.1 --
+2025-07-03 17:41:38,282 | acq | INF |  | Acquisition service started
+2025-07-03 17:41:38,282 | acq | INF |  | Preparing for acquisition...
+2025-07-03 17:41:38,282 | acq | INF |  | Checking for existence of data folders...
+2025-07-03 17:41:38,282 | acq | INF |  | All folders exist
+2025-07-03 17:42:36,022 | acq | INF |  | Processing scan: b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1
+2025-07-03 17:42:36,023 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Moving folder /Users/edison/repos/maglite/mri4all/data/acq_queue/b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 to /Users/edison/repos/maglite/mri4all/data/acq
+2025-07-03 17:42:36,024 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Performing acquisition...
+2025-07-03 17:42:36,179 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Requested sequence: FID
+2025-07-03 17:42:36,180 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Cleared subfolder /Users/edison/repos/maglite/mri4all/data/acq/b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1/seq
+2025-07-03 17:42:36,180 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Calculating sequence FID
+2025-07-03 17:42:36,182 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Timing check passed successfully
+2025-07-03 17:42:36,182 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Done calculating sequence FID
+2025-07-03 17:42:36,182 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Running sequence FID
+2025-07-03 17:42:36,182 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Pulseq scan with Larmor 15.58
+2025-07-03 17:42:36,182 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | case path = /Users/edison/repos/maglite/mri4all/data/acq/b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1
+2025-07-03 17:42:36,183 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | 2
+2025-07-03 17:42:36,183 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 |  
+2025-07-03 17:42:36,184 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | 1
+2025-07-03 17:42:36,184 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 |  
+2025-07-03 17:42:36,184 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | 888888888888888h88
+2025-07-03 17:43:51,187 | acq | ERR | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Connection has timed out, may be the RedPitaya is not connected
+2025-07-03 17:43:51,200 | acq | ERR | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Failed to run sequence FID. Failure during step run_sequence.
+2025-07-03 17:43:51,202 | acq | ERR | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/edison/repos/maglite/mri4all/console/services/acq/main.py", line 104, in process_acquisition
+    if not seq_instance.run_sequence(scan_task):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/sequences/FID.py", line 110, in run_sequence
+    rxd, rx_t = run_pulseq(
+                ^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/seq/adjustments_acq/scripts.py", line 155, in run_pulseq
+    expt = ex.Experiment(
+           ^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/experiment.py", line 139, in __init__
+    self.gradb.init_hw()
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/grad_board.py", line 251, in init_hw
+    self.server_command({'direct': 0x00000000 | (2 << 0) | (self.adc_spi_div << 2) | (0 << 8) | (0 << 9)})
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/experiment.py", line 155, in server_command
+    return sc.command(server_dict, self._s, self._print_infos, self._assert_errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/server_comms.py", line 75, in command
+    reply = send_packet(packet, socket)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edison/repos/maglite/mri4all/console/external/marcos_client/server_comms.py", line 61, in send_packet
+    socket.sendall(msgpack.packb(packet))
+BrokenPipeError: [Errno 32] Broken pipe
+2025-07-03 17:43:51,244 | acq | INF | b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 | Moving folder /Users/edison/repos/maglite/mri4all/data/acq/b1e14306-586f-11f0-9a7b-86b7b11de545#scan_1 to /Users/edison/repos/maglite/mri4all/data/failure

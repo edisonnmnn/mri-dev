@@ -55,7 +55,7 @@ brew install python@3.11
 source env/bin/activate
 ```
 - Confirm you are using Python 3.11
-```
+```python
 python --version
 # Should output: Python 3.11.x
 ```

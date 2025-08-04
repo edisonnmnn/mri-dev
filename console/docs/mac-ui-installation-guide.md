@@ -82,9 +82,6 @@ python run_ui.py
 
 - Remove the need for password authentication
 
-
- <u>This text is underlined.</u>
-
  - The run_ui file uses `systemctl` which is a linux specific system call, however this is kept in for debugging purposes because it allows for running the acquisition and recon services maually in parallel.
 
  # TODO:
